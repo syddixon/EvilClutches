@@ -7,6 +7,7 @@ public class bounce : MonoBehaviour
     [SerializeField] float speed = 0.01f;
     [SerializeField] float minY = -4f;
     [SerializeField] float maxY = 4f;
+    [SerializeField] GameObject babyPrefab;
 
     //the boolean travelDirection is true when going up, false when going down
     bool travelDirection = true;
@@ -37,6 +38,11 @@ public class bounce : MonoBehaviour
         if(transform.position.y < minY)
         {
             travelDirection = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            Instantiate(babyPrefab);
         }
     }
 }
