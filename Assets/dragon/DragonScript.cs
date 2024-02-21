@@ -7,6 +7,8 @@ public class DragonScript : MonoBehaviour
     [SerializeField] float speed = 1f;
     [SerializeField] float MinY = -4f;
     [SerializeField] float MaxY = 4f;
+    [SerializeField] GameObject fireballPrefab;
+    [SerializeField] Vector3 firePos;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,10 @@ public class DragonScript : MonoBehaviour
         if (transform.position.y < MinY)
         {
             transform.position = new Vector3(transform.position.x, MinY, 0f);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(fireballPrefab, transform.position + firePos, transform.rotation);
         }
     }
 }
