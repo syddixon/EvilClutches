@@ -35,7 +35,7 @@ public class DragonScript : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, MinY, 0f);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(fireballPrefab, transform.position + firePos, transform.rotation);
         }

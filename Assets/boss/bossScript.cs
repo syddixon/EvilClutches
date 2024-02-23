@@ -9,9 +9,12 @@ public class bounce : MonoBehaviour
     [SerializeField] float maxY = 4f;
     [SerializeField] GameObject babyPrefab;
     [SerializeField] GameObject demonPrefab;
-
+    [SerializeField] float randVarMax;
+    [SerializeField] float randVarMin;
+   
     //the boolean travelDirection is true when going up, false when going down
     bool travelDirection = true;
+    float futureTime = 0; //time when we'll instantiate baby or demon
 
     // Start is called before the first frame update
     void Start()
@@ -41,13 +44,12 @@ public class bounce : MonoBehaviour
             travelDirection = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        //if (Input.GetKeyDown(KeyCode.Space)) 
+        if(Time.time > futureTime) //if current time is greator than the futureTime variable
         {
-            Instantiate(babyPrefab);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(demonPrefab);
+            futureTime = Time.time + Random.Range(randVarMin, randVarMax);
+            Instantiate(babyPrefab, transform.position, transform.rotation);
+            Instantiate(demonPrefab, transform.position, transform.rotation);
         }
     }
 }

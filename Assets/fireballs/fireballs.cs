@@ -9,7 +9,7 @@ public class fireballs : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 5f);
+        //Destroy(gameObject, 5f);
     }
 
     // Update is called once per frame
@@ -17,5 +17,11 @@ public class fireballs : MonoBehaviour
     {
         
         transform.Translate(speed * Time.deltaTime * Vector3.right);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log("I'm triggered!" + collision.name);
+        Destroy(collision.gameObject); //destory object we hit
+        Destroy(gameObject); //destroy fireball
     }
 }

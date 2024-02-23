@@ -16,4 +16,9 @@ public class Baby : MonoBehaviour
     {
         transform.Translate(speed * Time.deltaTime * Vector3.left);
     }
+
+    //private void OnDestroy()
+   // {
+        
+   //}
 }
